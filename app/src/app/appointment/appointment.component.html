@@ -1,0 +1,113 @@
+<mat-toolbar *ngIf="succesMsg" color="accent">{{ succesMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMessage" color="accent">{{ errorMessage }}</mat-toolbar>
+
+<div class="form-container">
+    <form (submit)="createAppointment()">
+        <mat-form-field>
+            <input [(ngModel)]="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker"
+                placeholder="Choose a Date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>District</mat-label>
+            <mat-select [(value)]="district">
+              <mat-option value="Evlenme sözleşmesi">Adalar</mat-option>
+              <mat-option value="Miras taksimi Gayrimenkul, hibe vaadi sözleşmesi">Ataşehir</mat-option>
+              <mat-option value="Arnavutköy">Arnavutköy</mat-option>
+              <mat-option value="Avcılar">Avcılar</mat-option>
+              <mat-option value="Bağcılar">Bağcılar</mat-option>
+              <mat-option value="Bahçelievler">Bahçelievler</mat-option>
+              <mat-option value="Bakırköy">Bakırköy</mat-option>
+              <mat-option value="Başakşehir">Başakşehir</mat-option>
+              <mat-option value="Bayrampaşa">Bayrampaşa</mat-option>
+              <mat-option value="Beşiktaş">Beşiktaş</mat-option>
+              <mat-option value="Beykoz">Beykoz</mat-option>
+              <mat-option value="Beylikdüzü">Beklikdüzü</mat-option>
+              <mat-option value="Beyoğlu">Beyoğlu</mat-option>
+              <mat-option value="Büyükçekmece">Büyükçekmece</mat-option>
+              <mat-option value="Çatalca">Çatalca</mat-option>
+              <mat-option value="Çekmeköy">Çekmeköy</mat-option>
+              <mat-option value="Esenler">Esenler</mat-option>
+              <mat-option value="Esenyurt">Esenyurt</mat-option>
+              <mat-option value="Eyüp">Eyüp</mat-option>
+              <mat-option value="Fatih">Fatih</mat-option>
+              <mat-option value="Gaziosmanpaşa">Gaziosmanpaşa</mat-option>
+              <mat-option value="Güngören">Güngören</mat-option>
+              <mat-option value="Kadıköy">Kadıköy</mat-option>
+              <mat-option value="Kağıthane">Kağıthane</mat-option>
+              <mat-option value="Kartal">Kartal</mat-option>
+              <mat-option value="Küçükçekmece">Küçükçekmece</mat-option>
+              <mat-option value="Maltepe">Maltepe</mat-option>
+              <mat-option value="Pendik">Pendik</mat-option>
+              <mat-option value="Sancaktepe">Sancaktepe</mat-option>
+              <mat-option value="Sarıyer">Sarıyer</mat-option>
+              <mat-option value="Şile">Şile</mat-option>
+              <mat-option value="Silivri">Silivri</mat-option>
+              <mat-option value="Şişli">Şişli</mat-option>
+              <mat-option value="Sultanbeyli">Sultanbeyli</mat-option>
+              <mat-option value="Sultangazi">Sultangazi</mat-option>
+              <mat-option value="Tuzla">Tuzla</mat-option>
+              <mat-option value="Ümraniye">Ümraniye</mat-option>
+              <mat-option value="Üsküdar">Üsküdar</mat-option>
+              <mat-option value="Zeytinburnu">Zeytinburnu</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="name" name="name" matInput placeholder="Name">
+        </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="email" name="email" matInput placeholder="Email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Noterios</mat-label>
+            <mat-select [(value)]="noterios">
+              <mat-option value="Evlenme sözleşmesi">Evlenme sözleşmesi</mat-option>
+              <mat-option value="Miras taksimi Gayrimenkul, hibe vaadi sözleşmesi">Miras taksimi Gayrimenkul, hibe vaadi sözleşmesi</mat-option>
+              <mat-option value="Şirket sözleşmesi">Şirket sözleşmesi</mat-option>
+              <mat-option value="Gayrimenkul satış vaadi sözleşme">Gayrimenkul satış vaadi sözleşme</mat-option>
+              <mat-option value="Zilyetlik devri sözleşmesi">Zilyetlik devri sözleşmesi</mat-option>
+              <mat-option value="İrtifak hakkı vaadi ve ortak mülkün idaresi sözleşmesi">İrtifak hakkı vaadi ve ortak mülkün idaresi sözleşmesi</mat-option>
+              <mat-option value="Medeni Kanunun 748. maddesine müstenit sükna hakkı sözleşmesi">Medeni Kanunun 748. maddesine müstenit sükna hakkı sözleşmesi</mat-option>
+              <mat-option value="Kaydı hayat ile irat bağlanması sözleşmesi">Kaydı hayat ile irat bağlanması sözleşmesi</mat-option>
+              <mat-option value="Ölünceye kadar bakma sözleşmesi">Ölünceye kadar bakma sözleşmesi</mat-option>
+              <mat-option value="Mülkiyeti muhafaza kaydı ile satış sözleşmesi">Mülkiyeti muhafaza kaydı ile satış sözleşmesi</mat-option>
+              <mat-option value="Kira sözleşmesi">Kira sözleşmesi</mat-option>
+              <mat-option value="Menkul mallarda hibe sözleşmesi">Menkul mallarda hibe sözleşmesi</mat-option>
+              <mat-option value="Taksim ve ifraz sözleşmesi">Taksim ve ifraz sözleşmesi</mat-option>
+              <mat-option value="Evlat edinme sözleşmesi">Evlat edinme sözleşmesi</mat-option>
+              <mat-option value="Temlik">Temlik</mat-option>
+              <mat-option value="Taahhütname">Taahhütname</mat-option>
+              <mat-option value="Kefaletname">Kefaletname</mat-option>
+              <mat-option value="Vasiyetname">Vasiyetname</mat-option>
+              <mat-option value="Vakıf senedi">Vakıf senedi</mat-option>
+              <mat-option value="Aile vakfı senedi">Aile vakfı senedi</mat-option>
+              <mat-option value="Tanıma senedi">Tanıma senedi</mat-option>
+              <mat-option value="Muvafakatname">Muvafakatname</mat-option>
+              <mat-option value="Sulhname">Sulhname</mat-option>
+              <mat-option value="Yeddiemin senedi">Yeddiemin senedi</mat-option>
+              <mat-option value="Rehin senedi">Rehin senedi</mat-option>
+              <mat-option value="Borç senedi">Borç senedi</mat-option>
+              <mat-option value="Fesihname">Fesihname</mat-option>
+              <mat-option value="İbraname">İbraname</mat-option>
+              <mat-option value="Beyanname">Beyanname</mat-option>
+              <mat-option value="Şahadetname">Şahadetname</mat-option>
+              <mat-option value="Piyango – Kur'a ve toplantı tutanağı">Piyango – Kur'a ve toplantı tutanağı</mat-option>
+              <mat-option value="Emanetleri saklama tutanağı">Emanetleri saklama tutanağı</mat-option>
+              <mat-option value="İfade tutanağı">İfade tutanağı</mat-option>
+              <mat-option value="Tespit tutanağı">Tespit tutanağı</mat-option>
+              <mat-option value="Vekaletname">Vekaletname</mat-option>
+              <mat-option value="Defter onaylanması">Defter onaylanması</mat-option>
+              <mat-option value="Çevirme">Çevirme</mat-option>
+              <mat-option value="Örnek çıkartma">Örnek çıkartma</mat-option>
+              <mat-option value="İmza sirküleri">İmza sirküleri</mat-option>
+              <mat-option value="Protesto işleri">Protesto işleri</mat-option>
+              <mat-option value="İhbar – ihtarname işleri ve tebliği">İhbar – ihtarname işleri ve tebliği</mat-option>
+              <mat-option value="Tescil">Tescil</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <button mat-raised-button color="primary">Make Appointment</button>
+        <br>
+        <!-- <button mat-raised-button color="accent" (click)="changePage()">People who have appointment</button> -->
+    </form>
+</div>
