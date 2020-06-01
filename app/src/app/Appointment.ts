@@ -5,4 +5,4 @@ export interface Appointment {
     email: string;
     noterios: string;
     district: string;
-}
+};

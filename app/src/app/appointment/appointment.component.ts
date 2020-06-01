@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { AppointmentsService } from '../appointments.service';
-import { Appointment } from '../Appointment';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { AppointmentsService } from "../appointments.service";
+import { Appointment } from "../Appointment";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'appointment',
-  templateUrl: './appointment.component.html',
-  styleUrls: ['./appointment.component.css']
+  selector: "appointment",
+  templateUrl: "./appointment.component.html",
+  styleUrls: ["./appointment.component.css"]
 })
 export class AppointmentComponent implements OnInit {
-
-
   public errorMessage: string;
   public succesMsg: string;
   public appointmentDate: string;
@@ -19,41 +17,37 @@ export class AppointmentComponent implements OnInit {
   public email: string;
   public noterios: string;
 
-  constructor(private appointmentService: AppointmentsService, private router: Router) { }
-
+  constructor (private appointmentService: AppointmentsService, private router: Router) { }
 
   // ngOnInit(): void {
 
   // }
 
-  ngOnInit() {
+  ngOnInit () {
     // this.createAppointment();
   }
 
-
-  createAppointment() {
-    this.errorMessage = '';
-    this.succesMsg = '';
+  createAppointment () {
+    this.errorMessage = "";
+    this.succesMsg = "";
     this.appointmentService.createAppointment(this.appointmentDate, this.district, this.name, this.email, this.noterios)
       .subscribe((createdAppointment: Appointment) => {
-        this.appointmentDate = '';
-        this.district = '';
-        this.name = '';
-        this.email = '';
-        this.noterios= '';
+        this.appointmentDate = "";
+        this.district = "";
+        this.name = "";
+        this.email = "";
+        this.noterios = "";
 
         const appointmentDate = new Date(createdAppointment.appointmentDate).toDateString();
         this.succesMsg = `Appointment created succesfully :) for ${appointmentDate}`;
       },
-        (error: ErrorEvent) => {
-          this.errorMessage = error.error.message;
-        }
+      (error: ErrorEvent) => {
+        this.errorMessage = error.error.message;
+      }
       );
   }
-
 
   // changePage(){
   //   this.router.navigate([`/appointment-list`])
   // }
-
 }

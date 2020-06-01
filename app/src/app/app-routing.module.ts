@@ -1,28 +1,27 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AppointmentListComponent } from './appointment-list/appointment-list.component';
-import { PriceComponentComponent } from './price-component/price-component.component';
-import { FaqComponentComponent } from './faq-component/faq-component.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { HomeComponent } from "./home/home.component";
+import { AppointmentListComponent } from "./appointment-list/appointment-list.component";
+import { PriceComponentComponent } from "./price-component/price-component.component";
+import { FaqComponentComponent } from "./faq-component/faq-component.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: HomeComponent
   },
   {
-    path: 'appointment-list',
+    path: "appointment-list",
     component: AppointmentListComponent
   },
   {
-    path: 'price',
+    path: "price",
     component: PriceComponentComponent
   },
   {
-    path: 'faq',
+    path: "faq",
     component: FaqComponentComponent
-  },
+  }
 ];
 
 @NgModule({
